@@ -24,6 +24,7 @@ Route::group(['middleware' => 'verificacionToken'], function()
     Route::put('editarRetiro','ControllerTransacciones@editarRetiro');
     Route::get('traerClientes','ControllerClientes@traerClientes');
     Route::get('traerCuentas','ControllerCuentas@traerCuentas');
+    Route::get('traerCuentasCliente','ControllerCuentas@traerCuentasCliente');
 });
  // ruta para registrar las tarjetas
 
