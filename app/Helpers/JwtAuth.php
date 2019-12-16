@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Crypt;
 use App\User;
 class JwtAuth{
 
-    private $secret         = "sjshshshahashha";
+    private $secret         = "nexos";
     private $algoritmoCod   =  "HS256";
 
     public function  login($user,$pass){

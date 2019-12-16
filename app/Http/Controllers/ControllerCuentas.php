@@ -28,6 +28,22 @@ class ControllerCuentas extends Controller
         return datatables()->of($result)->toJson();
     }
 
+    // metodo para registrar una determinada cuenta
+    public function registroCuenta(Request $request)
+    {
+        DB::beginTransaction();
+        try {
+            $claveCuenta = substr($request->cedula, -4);
+            $this->registrarCuenta($claveCuenta,$request->id_cliente);
+            DB::commit();
+            $response = array("success"=>true,"msg"=>"Cuenta registrada exitosamente");
+        } catch (\Exception $e) {
+            DB::rollback();
+            $response = array("success"=>false,"msg"=>"Error, se presento un problema en el servidor al realizar la acción");
+        }
+        return new JsonResponse($response);
+    }
+
     //metodo para registrar las cuentas
     public function registrarCuenta($clave,$id_cliente)
     {

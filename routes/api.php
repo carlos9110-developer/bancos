@@ -18,6 +18,7 @@ Route::group(['middleware' => 'verificacionToken'], function()
     Route::put('actualizarCliente','ControllerClientes@actualizarCliente');
     Route::put('desactivarCuenta','ControllerCuentas@desactivarCuenta');
     Route::put('activarCuenta','ControllerCuentas@activarCuenta');
+    Route::post('registroCuenta','ControllerCuentas@registroCuenta');
     Route::post('consignacion','ControllerTransacciones@consignacion');
     Route::put('editarConsignacion','ControllerTransacciones@editarConsignacion');
     Route::post('retiro','ControllerTransacciones@retiro');
