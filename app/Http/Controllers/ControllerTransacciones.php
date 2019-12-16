@@ -9,6 +9,16 @@ use Carbon\Carbon;
 
 class ControllerTransacciones extends Controller
 {
+    // metodo para traer las transacciones
+    public function traerTransaccionesCuenta(Request $request)
+    {
+         $result = Transacciones::join('users','users.id','=','transacciones.id_cajero')
+                ->select('transacciones.id','transacciones.tipo','transacciones.fecha','transacciones.hora','transacciones.monto','transacciones.descripcion','users.name','transacciones.id_cuenta')
+                ->where('transacciones.id_cuenta',$request->id_cuenta)
+                ->get();
+        return datatables()->of($result)->toJson();
+    }
+
     //metodo que llama los metodos para guardar una consiganación
     public function consignacion(Request $request)
     {
@@ -106,7 +116,7 @@ class ControllerTransacciones extends Controller
     {
         $objCarbon = new Carbon();
         $objTrans               = new Transacciones();
-        $objTrans->tipo         = "1";
+        $objTrans->tipo         = "2";
         $objTrans->fecha        = $objCarbon->format('Y-m-d');
         $objTrans->hora         = $objCarbon->format('H:i:s');
         $objTrans->monto        = $request->monto;

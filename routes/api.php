@@ -23,6 +23,7 @@ Route::group(['middleware' => 'verificacionToken'], function()
     Route::put('editarConsignacion','ControllerTransacciones@editarConsignacion');
     Route::post('retiro','ControllerTransacciones@retiro');
     Route::put('editarRetiro','ControllerTransacciones@editarRetiro');
+    Route::get('traerTransaccionesCuenta','ControllerTransacciones@traerTransaccionesCuenta');
     Route::get('traerClientes','ControllerClientes@traerClientes');
     Route::get('traerCuentas','ControllerCuentas@traerCuentas');
     Route::get('traerCuentasCliente','ControllerCuentas@traerCuentasCliente');
