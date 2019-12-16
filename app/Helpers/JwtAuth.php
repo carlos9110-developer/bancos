@@ -25,7 +25,7 @@ class JwtAuth{
                     'nombre' => $usuario->name,
                     'usr'    => $usuario->email,
                     'iat'    => time(),
-                    'exp'    => time() + (60 * 60)
+                    'exp'    => time() + (60 * 60 * 2)
                 );
                 $jwt = JWT::encode($payload,$this->secret,$this->algoritmoCod);
                 $response = array(

@@ -18,6 +18,7 @@ class CreateCuentasTable extends Migration
             $table->string('numero_cuenta','6')->unique();
             $table->integer('saldo');
             $table->string('clave','4');
+            $table->char('estado','1')->default('0');// uno si esta activado y dos desactivado
             $table->foreign('id_cliente')->references('id')->on('clientes')->onDelete('restrict')->onUpdate('restrict');
             $table->unsignedInteger('id_cliente');
             $table->charset   = 'utf8mb4';

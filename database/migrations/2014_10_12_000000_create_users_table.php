@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('telefono','20');
-            $table->char('rol','1');
+            $table->char('rol','1');// 1 si es cajero y 2 si es asesor
             $table->string('password');
             $table->char('estado','1')->default('1');
             $table->charset   = 'utf8mb4';

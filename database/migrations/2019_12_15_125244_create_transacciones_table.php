@@ -10,7 +10,7 @@ class CreateTransaccionesTable extends Migration
     {
         Schema::create('transacciones', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tipo','10');// 1 si es consignación , 2 si es retiro
+            $table->char('tipo','1');// 1 si es consignación , 2 si es retiro
             $table->date('fecha');
             $table->string('hora','40');
             $table->integer('monto');
